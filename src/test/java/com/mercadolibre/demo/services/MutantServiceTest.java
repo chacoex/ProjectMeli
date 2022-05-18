@@ -9,12 +9,13 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.Silent.class)
+@RunWith(MockitoJUnitRunner.class)
 public class MutantServiceTest {
 
     @InjectMocks
@@ -25,32 +26,18 @@ public class MutantServiceTest {
 
     @Before
     public void init(){
-        when(statsRepository.save(Mockito.any())).thenReturn(0);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void mutantDnaFourByFourMatrixHorizontal() throws Exception {
-        String[] dna = { "AAAA", "CCCC", "GACT", "GACT" };
-        Stats stats = new Stats(1,1,1);
-        when(statsRepository.save(stats)).thenReturn(stats);
+    public void checkMutantDnaFiveByFiveMatrixVertical() throws Exception {
+        String[] dna = { "AATAA", "CATGC", "TATCG", "CATAC", "CCGTC" };
         assertTrue(mutantService.isMutant(dna));
     }
 
     @Test
     public void mutantDnaSixBySixMatrixVertical() throws Exception {
         String[] dna = { "GACTAC", "GACTAC", "GTCTAC", "ATGCGC", "GTTCAT", "ATGCGA" };
-        assertTrue(mutantService.isMutant(dna));
-    }
-
-    @Test
-    public void mutantDnaFourByFourMatrixOblique() throws Exception {
-        String[] dna = { "GACC", "AGCC", "GCGT", "CTCG" };
-        assertTrue(mutantService.isMutant(dna));
-    }
-
-    @Test
-    public void mutantDnaFourByFourMatrixMix() throws Exception {
-        String[] dna = { "ATGA", "CGAC", "TAAT", "AAAA" };
         assertTrue(mutantService.isMutant(dna));
     }
 

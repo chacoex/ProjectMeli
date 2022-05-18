@@ -45,7 +45,7 @@ Ejecucion con un cliente para hacer llamados servicios rest en este caso postman
 
 ## Endpoints
 
-**`POST -> /ismutant/`**
+**`POST -> /ismutant`**
 Se comprueba si un ADN pertenece a un Humano oa un Mutante
 
 Request example:
@@ -80,7 +80,7 @@ Content-Type: application/json
 ```
 
 
-**`GET -> /stats/`**
+**`GET -> /stats`**
 
 Response example:
 ```

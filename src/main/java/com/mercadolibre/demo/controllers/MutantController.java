@@ -17,9 +17,9 @@ public class MutantController {
     @Autowired
     private MutantService mutantService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/ismutant/")
+    @RequestMapping(method = RequestMethod.POST, value = "/ismutant")
     @ResponseBody
-    public ResponseEntity isMutant(@RequestBody Dna dna){
+    public ResponseEntity isMutant(@RequestBody Dna dna) throws Exception {
 
         Map<String, Object> body = new HashMap<>();
         System.out.println("Response: "+ dna);

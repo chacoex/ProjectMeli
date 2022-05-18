@@ -13,7 +13,7 @@ public class MutantService {
     @Autowired
     private StatsRepository statsRepository;
 
-    public boolean isMutant(String[] dna){
+    public boolean isMutant(String[] dna) throws Exception {
 
         String decodeDna = CheckMatrixUtils.convertToString(dna,",");
         Stats stats = new Stats(0,1, decodeDna);
