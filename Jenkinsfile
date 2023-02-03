@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Run tests') {
       steps {
-        sh 'java -version'
+        sh './gradlew bootRun'
       }
     }
   }
